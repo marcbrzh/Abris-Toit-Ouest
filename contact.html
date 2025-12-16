@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contactez Abris-Toit-Ouest pour un devis gratuit. Réponse sous 24h. Intervention Lorient & alentours. Urgence fuite 24h/7j." />
+  <title>Devis Gratuit & Contact | Abris-Toit-Ouest</title>
+
+  <link rel="icon" href="images/logo.png" type="image/png" />
+  <link rel="canonical" href="https://abris-toit-ouest.fr/contact.html" />
+  <meta name="theme-color" content="#0B0F1A" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <!-- Top contact strip -->
+  <div class="topbar" role="region" aria-label="Informations rapides">
+    <div class="container topbar__inner">
+      <p class="topbar__item">
+        <span class="topbar__label">Intervention</span>
+        <strong>Lorient & alentours</strong>
+      </p>
+      <p class="topbar__item">
+        <span class="topbar__label">Urgence fuite</span>
+        <a class="topbar__link" href="urgence.html">24h / 7j</a>
+      </p>
+      <p class="topbar__item">
+        <span class="topbar__label">Téléphone</span>
+        <a class="topbar__link" href="tel:+33685740233">06 85 74 02 33</a>
+      </p>
+    </div>
+  </div>
+
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Accueil Abris-Toit-Ouest">
+        <img class="brand__logo" src="images/logo.png" alt="Logo Abris-Toit-Ouest" width="44" height="44" />
+        <span class="brand__text">
+          <span class="brand__name">Abris-Toit-Ouest</span>
+          <span class="brand__tag">Couverture • Réparation • Entretien</span>
+        </span>
+      </a>
+
+      <button class="navbtn" type="button" aria-label="Ouvrir le menu" aria-controls="nav" aria-expanded="false">
+        <span class="navbtn__lines" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="services.html">Services</a>
+        <a class="nav__link" href="realisations.html">Réalisations</a>
+        <a class="nav__link nav__link--pill" href="urgence.html">🚨 Fuite Urgente</a>
+        <a class="nav__link nav__link--cta is-active" href="contact.html">Devis Gratuit</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Page hero -->
+    <section class="hero hero--compact" aria-label="Contact et devis">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Devis gratuit • Réponse sous 24h</p>
+          <h1 class="hero__title">Demander un devis toiture</h1>
+          <p class="hero__lead">
+            Décrivez votre besoin (réparation, fuite, nettoyage, charpente, Velux). Nous vous recontactons rapidement.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="tel:+33685740233">Appeler maintenant</a>
+            <a class="btn btn--ghost" href="urgence.html">Urgence fuite</a>
+          </div>
+        </div>
+
+        <div class="hero__media" aria-hidden="true">
+          <div class="hero__img hero__img--contact" role="img" aria-label="Image toiture"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form + Info -->
+    <section class="section" aria-label="Formulaire de devis">
+      <div class="container formLayout">
+        <!-- Form card -->
+        <section class="formCard" aria-label="Formulaire de contact">
+          <header class="formCard__head">
+            <h2 class="formCard__title">Votre demande</h2>
+            <p class="formCard__sub">Champs obligatoires marqués d’un astérisque *</p>
+          </header>
+
+          <form id="contact-form" class="form" method="POST" action="https://formspree.io/f/YOUR_ID">
+            <!-- Honeypot (anti-spam) -->
+            <div class="sr-only" aria-hidden="true">
+              <label for="company">Entreprise</label>
+              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="formGrid">
+              <div class="field">
+                <label class="field__label" for="name">Nom complet *</label>
+                <input class="field__control" type="text" id="name" name="name" required autocomplete="name" placeholder="Jean Dupont" />
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="email">Email *</label>
+                <input class="field__control" type="email" id="email" name="email" required autocomplete="email" placeholder="votre@email.fr" />
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="phone">Téléphone *</label>
+                <input class="field__control" type="tel" id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
+                <p class="field__hint" id="phoneHint">Nous l’utilisons uniquement pour vous recontacter.</p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="address">Adresse du chantier *</label>
+                <input class="field__control" type="text" id="address" name="address" required autocomplete="street-address" placeholder="123 rue de l'Exemple, 56100 Lorient" />
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="service">Type de demande *</label>
+                <select class="field__control" id="service" name="service" required>
+                  <option value="">— Sélectionnez —</option>
+                  <option value="couverture">Couverture & réparation toiture</option>
+                  <option value="nettoyage">Nettoyage & traitement toiture</option>
+                  <option value="charpente">Traitement charpente & bois</option>
+                  <option value="velux">Pose Velux & fenêtres de toit</option>
+                  <option value="inspection">Inspection / diagnostic</option>
+                  <option value="autre">Autre</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="timeline">Délai / urgence *</label>
+                <select class="field__control" id="timeline" name="timeline" required>
+                  <option value="">— Sélectionnez —</option>
+                  <option value="urgent">Urgent (1–2 jours)</option>
+                  <option value="rapide">Rapide (1–2 semaines)</option>
+                  <option value="normal">Normal (1–2 mois)</option>
+                  <option value="planning">À planifier</option>
+                </select>
+              </div>
+
+              <div class="field field--full">
+                <label class="field__label" for="description">Description *</label>
+                <textarea class="field__control field__control--textarea" id="description" name="description" required placeholder="Décrivez votre problème ou votre projet (fuite, zone concernée, matériau, accès, etc.)"></textarea>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="budget">Budget estimé (optionnel)</label>
+                <select class="field__control" id="budget" name="budget">
+                  <option value="">— Sélectionnez —</option>
+                  <option value="moins-2000">Moins de 2 000 €</option>
+                  <option value="2000-5000">2 000 € à 5 000 €</option>
+                  <option value="5000-10000">5 000 € à 10 000 €</option>
+                  <option value="10000-plus">Plus de 10 000 €</option>
+                </select>
+              </div>
+
+              <div class="field field--full">
+                <div class="checkRow">
+                  <input class="checkRow__box" type="checkbox" id="rgpd" name="rgpd" required />
+                  <label class="checkRow__label" for="rgpd">
+                    J’accepte que mes données soient utilisées pour me recontacter et gérer ma demande de devis. *
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="formActions">
+              <button type="submit" class="btn btn--primary btn--full" id="contact-submit">
+                Envoyer ma demande
+              </button>
+              <p class="formNote">
+                Urgence fuite ? <a href="tel:+33685740233">Appelez le 06 85 74 02 33</a>.
+              </p>
+            </div>
+          </form>
+        </section>
+
+        <!-- Info card -->
+        <aside class="infoCard" aria-label="Informations utiles">
+          <h2 class="infoCard__title">Informations utiles</h2>
+          <ul class="infoList">
+            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Devis <strong>gratuit</strong> et sans engagement</li>
+            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Réponse <strong>sous 24h</strong></li>
+            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Diagnostic clair (photos si nécessaire)</li>
+            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Garantie décennale</li>
+          </ul>
+
+          <div class="infoCard__divider" role="separator" aria-hidden="true"></div>
+
+          <div class="contactMini">
+            <div class="contactMini__row">
+              <span class="contactMini__label">Téléphone</span>
+              <a class="contactMini__value" href="tel:+33685740233">06 85 74 02 33</a>
+            </div>
+            <div class="contactMini__row">
+              <span class="contactMini__label">Email</span>
+              <a class="contactMini__value" href="mailto:contact@abris-toit-ouest.fr">contact@abris-toit-ouest.fr</a>
+            </div>
+            <div class="contactMini__row">
+              <span class="contactMini__label">Zone</span>
+              <span class="contactMini__value">Morbihan • Finistère • Côtes-d’Armor</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contact methods -->
+    <section class="section section--muted" aria-label="Autres moyens de contact">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Autres moyens de nous contacter</h2>
+          <p class="section__sub">Selon votre préférence : téléphone, email, zone d’intervention.</p>
+        </header>
+
+        <div class="cards cards--3">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">📞</div>
+            <h3 class="card__title">Téléphone</h3>
+            <p class="card__text"><strong>06 85 74 02 33</strong><br><span class="muted">Lun–Ven 7h–18h • Sam 8h–12h</span></p>
+            <a class="btn btn--soft" href="tel:+33685740233">Appeler</a>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">📧</div>
+            <h3 class="card__title">Email</h3>
+            <p class="card__text"><strong>contact@abris-toit-ouest.fr</strong><br><span class="muted">Réponse sous 24h • 7j/7</span></p>
+            <a class="btn btn--soft" href="mailto:contact@abris-toit-ouest.fr">Écrire</a>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">📍</div>
+            <h3 class="card__title">Zone d’intervention</h3>
+            <p class="card__text">Basés à Lorient (56100)<br><span class="muted">Morbihan • Finistère • Côtes-d’Armor</span></p>
+            <a class="btn btn--soft" href="#map">Voir la carte</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map -->
+    <section class="section" id="map" aria-label="Carte">
+      <div class="container">
+        <header class="section__head">
+          <h2 class="section__title">Localisez-nous</h2>
+          <p class="section__sub">Lorient et alentours.</p>
+        </header>
+
+        <div class="mapFrame">
+          <iframe
+            title="Carte Abris-Toit-Ouest"
+            width="100%" height="100%"
+            frameborder="0"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.0536627319043!2d-3.3614!3d47.7510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAbris-Toit-Ouest%20Lorient!5e0!3m2!1sfr!2sfr"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div>
+        <p class="footer__brand">Abris-Toit-Ouest</p>
+        <p class="footer__small">Couverture, réparation et entretien toiture à Lorient.</p>
+      </div>
+
+      <div>
+        <p class="footer__title">Contact</p>
+        <ul class="footer__list">
+          <li><a href="tel:+33685740233">06 85 74 02 33</a></li>
+          <li><a href="mailto:contact@abris-toit-ouest.fr">contact@abris-toit-ouest.fr</a></li>
+          <li>Lorient, Morbihan 56100</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer__title">Navigation</p>
+        <ul class="footer__list">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="urgence.html">Urgence fuite</a></li>
+          <li><a href="contact.html">Devis gratuit</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© 2025 Abris-Toit-Ouest • <a href="mentions-legales.html">Mentions légales</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
