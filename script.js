@@ -267,4 +267,63 @@
     }
   } catch (_) {}
 
+    // ---------- FAQ Urgence: Accordion (.accordion-item) ----------
+  const accItems = qsa(".accordion-item");
+  if (accItems.length) {
+    const closeItem = (item) => {
+      item.classList.remove("active");
+      const btn = qs(".accordion-header", item);
+      const content = qs(".accordion-content", item);
+      if (btn) btn.setAttribute("aria-expanded", "false");
+      if (content) content.style.maxHeight = "0px";
+    };
+
+    const openItem = (item) => {
+      item.classList.add("active");
+      const btn = qs(".accordion-header", item);
+      const content = qs(".accordion-content", item);
+      if (btn) btn.setAttribute("aria-expanded", "true");
+      if (!content) return;
+
+    // Animation hauteur (si pas reduced motion)
+      content.style.maxHeight = prefersReducedMotion ? "none" : content.scrollHeight + "px";
+    };
+
+    accItems.forEach((item) => {
+      const btn = qs(".accordion-header", item);
+      const content = qs(".accordion-content", item);
+      if (!btn || !content) return;
+
+      // Init état fermé
+      btn.setAttribute("aria-expanded", item.classList.contains("active") ? "true" : "false");
+      content.style.overflow = "hidden";
+      content.style.maxHeight = item.classList.contains("active")
+        ? (prefersReducedMotion ? "none" : content.scrollHeight + "px")
+        : "0px";
+
+      btn.addEventListener("click", () => {
+        const isOpen = item.classList.contains("active");
+
+        // close others
+        accItems.forEach((other) => {
+          if (other !== item) closeItem(other);
+        });
+
+        // toggle current
+        if (isOpen) closeItem(item);
+        else openItem(item);
+      });
+    });
+
+    // Recalc on resize (open items)
+    window.addEventListener("resize", () => {
+      if (prefersReducedMotion) return;
+      accItems.forEach((item) => {
+        if (!item.classList.contains("active")) return;
+        const content = qs(".accordion-content", item);
+        if (content) content.style.maxHeight = content.scrollHeight + "px";
+      });
+    });
+  }
+
 })();

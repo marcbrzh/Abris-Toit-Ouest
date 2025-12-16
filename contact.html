@@ -16,31 +16,13 @@
 <body>
   <a class="skip-link" href="#main">Aller au contenu principal</a>
 
-  <!-- Top contact strip -->
-  <div class="topbar" role="region" aria-label="Informations rapides">
-    <div class="container topbar__inner">
-      <p class="topbar__item">
-        <span class="topbar__label">Intervention</span>
-        <strong>Lorient & alentours</strong>
-      </p>
-      <p class="topbar__item">
-        <span class="topbar__label">Urgence fuite</span>
-        <a class="topbar__link" href="urgence.html">24h / 7j</a>
-      </p>
-      <p class="topbar__item">
-        <span class="topbar__label">Téléphone</span>
-        <a class="topbar__link" href="tel:+33685740233">06 85 74 02 33</a>
-      </p>
-    </div>
-  </div>
-
   <header class="header" role="banner">
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Accueil Abris-Toit-Ouest">
         <img class="brand__logo" src="images/logo.png" alt="Logo Abris-Toit-Ouest" width="44" height="44" />
         <span class="brand__text">
           <span class="brand__name">Abris-Toit-Ouest</span>
-          <span class="brand__tag">Couverture • Réparation • Entretien</span>
+          <span class="brand__tag">Rénovation • Réparation • Entretien</span>
         </span>
       </a>
 
@@ -52,8 +34,8 @@
         <a class="nav__link" href="index.html">Accueil</a>
         <a class="nav__link" href="services.html">Services</a>
         <a class="nav__link" href="realisations.html">Réalisations</a>
-        <a class="nav__link nav__link--pill" href="urgence.html">🚨 Fuite Urgente</a>
-        <a class="nav__link nav__link--cta is-active" href="contact.html">Devis Gratuit</a>
+        <a class="nav__link nav__link--pill" href="urgence.html">🚨 Urgence fuite</a>
+        <a class="nav__link nav__link--cta is-active" href="contact.html">Devis gratuit</a>
       </nav>
     </div>
   </header>
@@ -88,7 +70,7 @@
         <section class="formCard" aria-label="Formulaire de contact">
           <header class="formCard__head">
             <h2 class="formCard__title">Votre demande</h2>
-            <p class="formCard__sub">Champs obligatoires marqués d’un astérisque *</p>
+            <p class="formCard__sub">Champs obligatoires marqués d'un astérisque *</p>
           </header>
 
           <form id="contact-form" class="form" method="POST" action="https://formspree.io/f/YOUR_ID">
@@ -112,7 +94,7 @@
               <div class="field">
                 <label class="field__label" for="phone">Téléphone *</label>
                 <input class="field__control" type="tel" id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
-                <p class="field__hint" id="phoneHint">Nous l’utilisons uniquement pour vous recontacter.</p>
+                <p class="field__hint" id="phoneHint">Nous l'utilisons uniquement pour vous recontacter.</p>
               </div>
 
               <div class="field">
@@ -124,7 +106,7 @@
                 <label class="field__label" for="service">Type de demande *</label>
                 <select class="field__control" id="service" name="service" required>
                   <option value="">— Sélectionnez —</option>
-                  <option value="couverture">Couverture & réparation toiture</option>
+                  <option value="couverture">Rénovation & couverture toiture</option>
                   <option value="nettoyage">Nettoyage & traitement toiture</option>
                   <option value="charpente">Traitement charpente & bois</option>
                   <option value="velux">Pose Velux & fenêtres de toit</option>
@@ -164,7 +146,7 @@
                 <div class="checkRow">
                   <input class="checkRow__box" type="checkbox" id="rgpd" name="rgpd" required />
                   <label class="checkRow__label" for="rgpd">
-                    J’accepte que mes données soient utilisées pour me recontacter et gérer ma demande de devis. *
+                    J'accepte que mes données soient utilisées pour me recontacter et gérer ma demande de devis. *
                   </label>
                 </div>
               </div>
@@ -200,11 +182,11 @@
             </div>
             <div class="contactMini__row">
               <span class="contactMini__label">Email</span>
-              <a class="contactMini__value" href="mailto:contact@abris-toit-ouest.fr">contact@abris-toit-ouest.fr</a>
+              <a class="contactMini__value" href="mailto:gregory.angenard@orange.fr">gregory.angenard@orange.fr</a>
             </div>
             <div class="contactMini__row">
               <span class="contactMini__label">Zone</span>
-              <span class="contactMini__value">Morbihan • Finistère • Côtes-d’Armor</span>
+              <span class="contactMini__value">Lorient & alentours (20–60 km)</span>
             </div>
           </div>
         </aside>
@@ -216,7 +198,7 @@
       <div class="container">
         <header class="section__head">
           <h2 class="section__title">Autres moyens de nous contacter</h2>
-          <p class="section__sub">Selon votre préférence : téléphone, email, zone d’intervention.</p>
+          <p class="section__sub">Selon votre préférence : téléphone, email, zone d'intervention.</p>
         </header>
 
         <div class="cards cards--3">
@@ -230,14 +212,14 @@
           <article class="card">
             <div class="card__icon" aria-hidden="true">📧</div>
             <h3 class="card__title">Email</h3>
-            <p class="card__text"><strong>contact@abris-toit-ouest.fr</strong><br><span class="muted">Réponse sous 24h • 7j/7</span></p>
-            <a class="btn btn--soft" href="mailto:contact@abris-toit-ouest.fr">Écrire</a>
+            <p class="card__text"><strong>gregory.angenard@orange.fr</strong><br><span class="muted">Réponse sous 24h • 7j/7</span></p>
+            <a class="btn btn--soft" href="mailto:gregory.angenard@orange.fr">Écrire</a>
           </article>
 
           <article class="card">
             <div class="card__icon" aria-hidden="true">📍</div>
-            <h3 class="card__title">Zone d’intervention</h3>
-            <p class="card__text">Basés à Lorient (56100)<br><span class="muted">Morbihan • Finistère • Côtes-d’Armor</span></p>
+            <h3 class="card__title">Zone d'intervention</h3>
+            <p class="card__text">Basés à Lorient (56100)<br><span class="muted">20–60 km autour de Lorient</span></p>
             <a class="btn btn--soft" href="#map">Voir la carte</a>
           </article>
         </div>
@@ -249,15 +231,15 @@
       <div class="container">
         <header class="section__head">
           <h2 class="section__title">Localisez-nous</h2>
-          <p class="section__sub">Lorient et alentours.</p>
+          <p class="section__sub">13f Quai Charles de Rohan, 56100 Lorient</p>
         </header>
 
         <div class="mapFrame">
           <iframe
-            title="Carte Abris-Toit-Ouest"
+            title="Carte Abris-Toit-Ouest — 13f Quai Charles de Rohan, 56100 Lorient"
             width="100%" height="100%"
             frameborder="0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.0536627319043!2d-3.3614!3d47.7510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAbris-Toit-Ouest%20Lorient!5e0!3m2!1sfr!2sfr"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.053!2d-3.3614!3d47.7510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48206f2e0000001%3A0x0!2sAbris%20Toit%20Ouest!5e0!3m2!1sfr!2sfr!4v1234567890123"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -270,15 +252,16 @@
     <div class="container footer__grid">
       <div>
         <p class="footer__brand">Abris-Toit-Ouest</p>
-        <p class="footer__small">Couverture, réparation et entretien toiture à Lorient.</p>
+        <p class="footer__small">Rénovation, réparation et entretien toiture à Lorient et alentours (20–60 km).</p>
+        <p class="footer__year">Depuis 01/10/2024</p>
       </div>
 
       <div>
         <p class="footer__title">Contact</p>
         <ul class="footer__list">
           <li><a href="tel:+33685740233">06 85 74 02 33</a></li>
-          <li><a href="mailto:contact@abris-toit-ouest.fr">contact@abris-toit-ouest.fr</a></li>
-          <li>Lorient, Morbihan 56100</li>
+          <li><a href="mailto:gregory.angenard@orange.fr">gregory.angenard@orange.fr</a></li>
+          <li>13f Quai Charles de Rohan<br />56100 Lorient, France</li>
         </ul>
       </div>
 
@@ -294,7 +277,7 @@
     </div>
 
     <div class="container footer__bottom">
-      <p>© 2025 Abris-Toit-Ouest • <a href="mentions-legales.html">Mentions légales</a></p>
+      <p>© 2024–2025 Abris-Toit-Ouest • <a href="mentions-legales.html">Mentions légales</a></p>
     </div>
   </footer>
 
