@@ -1,14 +1,23 @@
 :root{
-  /* Colors */
-  --bg: #0B0F1A;
-  --panel: #10182A;
-  --muted: #F4F6FA;
+  /* =========================================================
+     1) DESIGN TOKENS — INVERTED DEFAULT (LIGHT UI)
+     ========================================================= */
 
-  --text: #0E1424;
-  --text2: #34405A;
-  --white: #FFFFFF;
-  --line: rgba(14,20,36,0.10);
+  /* Base surfaces */
+  --white: #FFFFFF;                 /* true white */
+  --bg: #0F1218;                    /* near-black (primary dark surface) */
+  --panel: #161B26;                 /* dark grey panels */
+  --muted: #F2F4F8;                 /* light grey sections */
 
+  /* Text */
+  --text: #0E1117;                  /* primary text on light */
+  --text2: #4A5568;                 /* secondary text on light */
+  --text-inverse: #F7F9FC;          /* text on dark */
+
+  /* Lines / borders */
+  --line: rgba(14,17,23,0.12);
+
+  /* Brand */
   --brand: #DDA911;     /* warm gold */
   --accent: #F44336;    /* emergency red */
 
@@ -16,8 +25,8 @@
   --radius: 16px;
   --radius2: 22px;
 
-  --shadow: 0 10px 30px rgba(11,15,26,0.10);
-  --shadow2: 0 18px 50px rgba(11,15,26,0.16);
+  --shadow: 0 10px 28px rgba(15,18,24,0.10);
+  --shadow2: 0 18px 46px rgba(15,18,24,0.18);
 
   /* Layout */
   --container: 1180px;
