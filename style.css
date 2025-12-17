@@ -1,6 +1,6 @@
 :root{
   /* =========================================================
-     1) DESIGN TOKENS — INVERTED DEFAULT (LIGHT UI)
+     1) DESIGN TOKENS
      ========================================================= */
 
   /* Base surfaces */
@@ -128,7 +128,7 @@ textarea:focus-visible{
   background: rgba(255,255,255,.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
-  padding: var(--s3) 0; /* reduced top padding */
+  padding: var(--s1) 0;
 }
 .header__inner{
   display:flex;
@@ -261,27 +261,49 @@ textarea:focus-visible{
    ====================================================================== */
 
 .hero{
-  background:
-    radial-gradient(1000px 400px at 20% 0%, rgba(221,169,17,0.18), transparent 60%),
-    radial-gradient(900px 380px at 90% 15%, rgba(244,67,54,0.12), transparent 55%),
-    linear-gradient(180deg, rgba(11,15,26,0.04), transparent 40%);
+  background-image: url("images/hero-3.jpg");
+  background-size: cover;
+  background-position: center;
   padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  position: relative;
 }
+
+/* Dark overlay for text readability */
+.hero::before{
+  content:"";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 15, 26, 0.72) 0%,
+    rgba(11, 15, 26, 0.60) 50%,
+    rgba(11, 15, 26, 0.68) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
 .hero__grid{
   display:grid;
   gap: var(--s6);
   align-items:center;
+  position: relative;
+  z-index: 2;
 }
-.hero__content{max-width: 62ch}
+
+.hero__content{
+  max-width: 62ch;
+  color: var(--text-inverse);
+}
 
 .eyebrow{
   display:inline-flex;
   align-items:center;
   gap:.5rem;
   font-weight:800;
-  color: #1B2742;
-  background: rgba(221,169,17,0.16);
-  border: 1px solid rgba(221,169,17,0.25);
+  color: var(--brand);
+  background: rgba(221, 169, 17, 0.22);
+  border: 1px solid rgba(221, 169, 17, 0.35);
   padding: .35rem .7rem;
   border-radius: 999px;
   margin:0 0 var(--s3);
@@ -292,12 +314,15 @@ textarea:focus-visible{
   font-size: var(--h1);
   line-height: 1.12;
   letter-spacing: -0.02em;
+  color: var(--white);
 }
+
 .hero__lead{
   margin:0 0 var(--s5);
   font-size: var(--p);
-  color: var(--text2);
+  color: rgba(255, 255, 255, 0.90);
 }
+
 .hero__actions{
   display:flex;
   gap: .85rem;
