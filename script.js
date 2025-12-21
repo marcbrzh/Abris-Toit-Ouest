@@ -326,4 +326,40 @@
     });
   }
 
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('.lightbox__img');
+  const closeBtn = lightbox.querySelector('.lightbox__close');
+
+  document.querySelectorAll('img[data-zoom]').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+
+      document.body.classList.add('is-lightbox-open');
+      lightbox.showModal();
+      
+      // Scroll back to current position
+      requestAnimationFrame(() => {
+        window.scrollTo(0, window.scrollY);
+      });
+
+      setTimeout(() => lightbox.classList.add('show'), 10);
+    });
+  });
+
+  function closeLightbox(){
+    // Enlever l'animation d'abord
+    lightbox.classList.remove('show');
+    setTimeout(() => {
+      lightbox.close();
+      document.body.classList.remove('is-lightbox-open');
+    }, 350); // durée correspond à CSS transition
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
 })();

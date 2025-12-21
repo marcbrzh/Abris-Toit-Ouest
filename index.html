@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Abris-Toit-Ouest — Rénovation toiture, couverture, nettoyage, traitement charpente et pose Velux à Lorient (56). Devis gratuit, garantie décennale, urgence fuite 24h/7j." />
   <meta name="theme-color" content="#0B0F1A" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
   <title>Abris-Toit-Ouest — Rénovation & Réparation Toiture à Lorient (56)</title>
 
   <link rel="icon" href="images/logo.png" type="image/png" />
@@ -64,33 +68,28 @@
       <div class="container">
         <header class="section__head">
           <h2 class="section__title">Services principaux</h2>
-          <p class="section__sub">Des interventions maîtrisées, du diagnostic au suivi.</p>
         </header>
 
         <div class="cards">
           <article class="card">
-            <div class="card__icon" aria-hidden="true">🏗️</div>
             <h3 class="card__title">Rénovation & Couverture</h3>
             <p class="card__text">Rénovation complète, remplacement d'éléments, recherche de fuite, étanchéité (ardoise, tuile, zinc, bac acier).</p>
             <a class="card__link" href="services.html#couverture">Voir le détail</a>
           </article>
 
           <article class="card">
-            <div class="card__icon" aria-hidden="true">🧹</div>
             <h3 class="card__title">Nettoyage & Traitement</h3>
             <p class="card__text">Démoussage, traitement anti-mousse, nettoyage haute pression. Résultat durable, toiture assainie.</p>
             <a class="card__link" href="services.html#nettoyage">Voir le détail</a>
           </article>
 
           <article class="card">
-            <div class="card__icon" aria-hidden="true">🛡️</div>
             <h3 class="card__title">Traitement Charpente</h3>
             <p class="card__text">Diagnostic, traitement contre xylophages et insectes, prévention humidité. Documentation fournie.</p>
             <a class="card__link" href="services.html#charpente">Voir le détail</a>
           </article>
 
           <article class="card">
-            <div class="card__icon" aria-hidden="true">☀️</div>
             <h3 class="card__title">Pose Velux</h3>
             <p class="card__text">Installation et remplacement fenêtres de toit, création d'ouverture, raccords d'étanchéité conformes.</p>
             <a class="card__link" href="services.html#velux">Voir le détail</a>
@@ -156,38 +155,70 @@
       </div>
     </section>
 
-    <!-- Before / After -->
-    <section class="section" aria-label="Réalisations avant après">
-      <div class="container">
-        <header class="section__head">
-          <h2 class="section__title">Avant / Après</h2>
-          <p class="section__sub">Exemples récents : nettoyage, réparation, rénovation.</p>
-        </header>
+<section class="section" aria-labelledby="ba-title">
+  <div class="container">
 
-        <div class="gallery">
-          <figure class="shot">
-            <img src="images/Nettoyage-toiture-fibro-ciments-hydrofuge/step-1.jpg" alt="Toiture avant nettoyage" loading="lazy" />
-            <figcaption class="shot__cap"> Nettoyage: Avant</figcaption>
+    <header class="section__head">
+      <h2 id="ba-title" class="section__title">
+        Avant / Après – Résultats concrets
+      </h2>
+      <p class="section__sub">
+        Exemples récents de transformations de toitures chez nos clients.
+      </p>
+    </header>
+
+    <div class="baProjects">
+
+      <!-- Chantier 1 -->
+      <article class="baProject">
+        <h3 class="baProject__title">Nettoyage de toiture en fibrociment</h3>
+
+        <div class="baPair">
+          <figure class="baShot baShot--before">
+            <img src="images/Nettoyage-toiture-fibro-ciments-hydrofuge/step-1.jpg"
+                 alt="Toiture en fibrociment avant nettoyage" data-zoom>
+            <figcaption>Avant</figcaption>
           </figure>
-          <figure class="shot">
-            <img src="images/Nettoyage-toiture-fibro-ciments-hydrofuge/step-3.jpg" alt="Toiture après nettoyage" loading="lazy" />
-            <figcaption class="shot__cap">Nettoyage: Après</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="images/Renovation-zinc-quartz/step-2.jpg" alt="Réparation d'urgence avant" loading="lazy" />
-            <figcaption class="shot__cap">Rénovation: Avant</figcaption>
-          </figure>
-          <figure class="shot">
-            <img src="images/Renovation-zinc-quartz/step-8.jpg" alt="Réparation d'urgence après" loading="lazy" />
-            <figcaption class="shot__cap">Rénovation: Après</figcaption>
+
+          <figure class="baShot baShot--after">
+            <img src="images/Nettoyage-toiture-fibro-ciments-hydrofuge/step-3.jpg"
+                 alt="Toiture en fibrociment après nettoyage" data-zoom>
+                 
+            <figcaption>Après</figcaption>
           </figure>
         </div>
+      </article>
 
-        <div class="section__cta">
-          <a class="btn btn--soft" href="realisations.html">Voir toutes les réalisations</a>
+      <!-- Chantier 2 -->
+      <article class="baProject">
+        <h3 class="baProject__title">Rénovation de toiture zinc quartz</h3>
+
+        <div class="baPair">
+          <figure class="baShot baShot--before">
+            <img src="images/Renovation-zinc-quartz/step-2.jpg"
+                 alt="Toiture zinc avant rénovation" data-zoom>
+            <figcaption>Avant</figcaption>
+          </figure>
+
+          <figure class="baShot baShot--after">
+            <img src="images/Renovation-zinc-quartz/step-8.jpg"
+                 alt="Toiture zinc après rénovation" data-zoom>
+            <figcaption>Après</figcaption>
+          </figure>
         </div>
-      </div>
-    </section>
+      </article>
+
+    </div>
+
+    <div class="section__cta">
+      <a class="btn btn--soft" href="realisations.html">
+        Voir toutes les réalisations
+      </a>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Testimonials -->
     <section class="section section--muted" aria-label="Avis clients">
@@ -200,15 +231,15 @@
         <div class="quotes">
           <article class="quote">
             <p class="quote__text">"Intervention rapide et très propre. Explications claires, devis respecté."</p>
-            <p class="quote__meta">— Marie D., Lorient • ★★★★★</p>
+            <p class="quote__meta">— Marie D., Lorient • <span>★★★★★</span></p>
           </article>
           <article class="quote">
             <p class="quote__text">"Fuite un dimanche : mise en sécurité + réparation efficace. Merci !"</p>
-            <p class="quote__meta">— Paul M., Lorient • ★★★★★</p>
+            <p class="quote__meta">— Paul M., Lorient • <span>★★★★★</span></p>
           </article>
           <article class="quote">
             <p class="quote__text">"Travail soigné, finitions impeccables. Je recommande vivement."</p>
-            <p class="quote__meta">— Sophie H., Lorient • ★★★★★</p>
+            <p class="quote__meta">— Sophie H., Lorient • <span>★★★★★</span></p>
           </article>
         </div>
       </div>
@@ -262,6 +293,12 @@
     </div>
   </footer>
 
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox__close" aria-label="Fermer l’image">×</button>
+    <img class="lightbox__img" alt="">
+  </dialog>
+
   <script src="script.js" defer></script>
+  
 </body>
 </html>
