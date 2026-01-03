@@ -38,8 +38,9 @@
         <a class="nav__link" href="index.html">Accueil</a>
         <a class="nav__link" href="services.html">Services</a>
         <a class="nav__link" href="realisations.html">Réalisations</a>
+        <a class="nav__link is-active" href="contact.html">Contact</a>
         <a class="nav__link nav__link--pill" href="urgence.html">🚨 Urgence fuite</a>
-        <a class="nav__link nav__link--cta is-active" href="contact.html">Devis gratuit</a>
+        <a class="nav__link nav__link--phone" href="tel:+33685740233">06 85 74 02 33</a>
       </nav>
     </div>
   </header>
@@ -63,133 +64,109 @@
     </section>
 
     <!-- Form + Info -->
-    <section class="section" aria-label="Formulaire de devis">
-      <div class="container formLayout">
-        <!-- Form card -->
-        <section class="formCard" aria-label="Formulaire de contact">
-          <header class="formCard__head">
-            <h2 class="formCard__title">Votre demande</h2>
-            <p class="formCard__sub">Champs obligatoires marqués d'un astérisque *</p>
-          </header>
+<section class="section" aria-label="Formulaire de devis">
+  <div class="container formLayout">
+    <!-- Form card -->
+    <section class="formCard" aria-label="Formulaire de contact">
+      <header class="formCard__head">
+        <h2 class="formCard__title">Votre demande</h2>
+        <p class="formCard__sub">Champs obligatoires marqués d'un astérisque *</p>
+      </header>
+      
+      <!-- ─── VERSION NETLIFY FORMS ─────────────────────────────── -->
+      <form 
+        id="contact-form" 
+        name="devis" 
+        method="POST" 
+        data-netlify="true" 
+        data-netlify-honeypot="company"  <!-- ← honeypot activé -->
+        <!-- Honeypot field (déjà présent dans votre code, on l'utilise) -->
+        <div class="sr-only" aria-hidden="true">
+          <label for="company">Entreprise</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
 
-          <form id="contact-form" class="form" method="POST" action="https://formspree.io/f/YOUR_ID">
-            <!-- Honeypot (anti-spam) -->
-            <div class="sr-only" aria-hidden="true">
-              <label for="company">Entreprise</label>
-              <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
-            </div>
+        <!-- Champ caché obligatoire pour Netlify (important si JS/AJAX) -->
+        <!-- <input type="hidden" name="form-name" value="devis" /> → utile surtout avec JS -->
 
-            <div class="formGrid">
-              <div class="field">
-                <label class="field__label" for="name">Nom complet *</label>
-                <input class="field__control" type="text" id="name" name="name" required autocomplete="name" placeholder="Jean Dupont" />
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="email">Email *</label>
-                <input class="field__control" type="email" id="email" name="email" required autocomplete="email" placeholder="votre@email.fr" />
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="phone">Téléphone *</label>
-                <input class="field__control" type="tel" id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" />
-                <p class="field__hint" id="phoneHint">Nous l'utilisons uniquement pour vous recontacter.</p>
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="address">Adresse du chantier *</label>
-                <input class="field__control" type="text" id="address" name="address" required autocomplete="street-address" placeholder="123 rue de l'Exemple, 56100 Lorient" />
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="service">Type de demande *</label>
-                <select class="field__control" id="service" name="service" required>
-                  <option value="">— Sélectionnez —</option>
-                  <option value="couverture">Rénovation & couverture toiture</option>
-                  <option value="nettoyage">Nettoyage & traitement toiture</option>
-                  <option value="charpente">Traitement charpente & bois</option>
-                  <option value="velux">Pose Velux & fenêtres de toit</option>
-                  <option value="inspection">Inspection / diagnostic</option>
-                  <option value="autre">Autre</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="timeline">Délai / urgence *</label>
-                <select class="field__control" id="timeline" name="timeline" required>
-                  <option value="">— Sélectionnez —</option>
-                  <option value="urgent">Urgent (1–2 jours)</option>
-                  <option value="rapide">Rapide (1–2 semaines)</option>
-                  <option value="normal">Normal (1–2 mois)</option>
-                  <option value="planning">À planifier</option>
-                </select>
-              </div>
-
-              <div class="field field--full">
-                <label class="field__label" for="description">Description *</label>
-                <textarea class="field__control field__control--textarea" id="description" name="description" required placeholder="Décrivez votre problème ou votre projet (fuite, zone concernée, matériau, accès, etc.)"></textarea>
-              </div>
-
-              <div class="field">
-                <label class="field__label" for="budget">Budget estimé (optionnel)</label>
-                <select class="field__control" id="budget" name="budget">
-                  <option value="">— Sélectionnez —</option>
-                  <option value="moins-2000">Moins de 2 000 €</option>
-                  <option value="2000-5000">2 000 € à 5 000 €</option>
-                  <option value="5000-10000">5 000 € à 10 000 €</option>
-                  <option value="10000-plus">Plus de 10 000 €</option>
-                </select>
-              </div>
-
-              <div class="field field--full">
-                <div class="checkRow">
-                  <input class="checkRow__box" type="checkbox" id="rgpd" name="rgpd" required />
-                  <label class="checkRow__label" for="rgpd">
-                    J'accepte que mes données soient utilisées pour me recontacter et gérer ma demande de devis. *
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="formActions">
-              <button type="submit" class="btn btn--primary btn--full" id="contact-submit">
-                Envoyer ma demande
-              </button>
-              <p class="formNote">
-                Urgence fuite ? <a href="tel:+33685740233">Appelez le 06 85 74 02 33</a>.
-              </p>
-            </div>
-          </form>
-        </section>
-
-        <!-- Info card -->
-        <aside class="infoCard" aria-label="Informations utiles">
-          <h2 class="infoCard__title">Informations utiles</h2>
-          <ul class="infoList">
-            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Devis <strong>gratuit</strong> et sans engagement</li>
-            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Réponse <strong>sous 24h</strong></li>
-            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Diagnostic clair (photos si nécessaire)</li>
-            <li class="infoList__item"><span class="infoList__dot" aria-hidden="true"></span> Garantie décennale</li>
-          </ul>
-
-          <div class="infoCard__divider" role="separator" aria-hidden="true"></div>
-
-          <div class="contactMini">
-            <div class="contactMini__row">
-              <span class="contactMini__label">Téléphone</span>
-              <a class="contactMini__value" href="tel:+33685740233">06 85 74 02 33</a>
-            </div>
-            <div class="contactMini__row">
-              <span class="contactMini__label">Email</span>
-              <a class="contactMini__value" href="mailto:gregory.angenard@orange.fr">gregory.angenard@orange.fr</a>
-            </div>
-            <div class="contactMini__row">
-              <span class="contactMini__label">Zone</span>
-              <span class="contactMini__value">Lorient & alentours (20–60 km)</span>
+        <div class="formGrid">
+          <div class="field">
+            <label class="field__label" for="name">Nom complet *</label>
+            <input class="field__control" type="text" id="name" name="name" required autocomplete="name" placeholder="Jean Dupont" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="email">Email *</label>
+            <input class="field__control" type="email" id="email" name="email" required autocomplete="email" placeholder="votre@email.fr" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="phone">Téléphone *</label>
+            <input class="field__control" type="tel" id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" pattern="0[1-9][0-9]{8}" title="Format: 10 chiffres commençant par 0" />
+            <p class="field__hint" id="phoneHint">Nous l'utilisons uniquement pour vous recontacter.</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="address">Adresse du chantier *</label>
+            <input class="field__control" type="text" id="address" name="address" required autocomplete="street-address" placeholder="123 rue de l'Exemple, 56100 Lorient" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="service">Type de demande *</label>
+            <select class="field__control" id="service" name="service" required>
+              <option value="">— Sélectionnez —</option>
+              <option value="couverture">Rénovation & couverture toiture</option>
+              <option value="nettoyage">Nettoyage & traitement toiture</option>
+              <option value="charpente">Traitement charpente & bois</option>
+              <option value="velux">Pose Velux & fenêtres de toit</option>
+              <option value="inspection">Inspection / diagnostic</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="field__label" for="timeline">Délai / urgence *</label>
+            <select class="field__control" id="timeline" name="timeline" required>
+              <option value="">— Sélectionnez —</option>
+              <option value="urgent">Urgent (1–2 jours)</option>
+              <option value="rapide">Rapide (1–2 semaines)</option>
+              <option value="normal">Normal (1–2 mois)</option>
+              <option value="planning">À planifier</option>
+            </select>
+          </div>
+          <div class="field field--full">
+            <label class="field__label" for="description">Description *</label>
+            <textarea class="field__control field__control--textarea" id="description" name="description" required placeholder="Décrivez votre problème ou votre projet (fuite, zone concernée, matériau, accès, etc.)"></textarea>
+          </div>
+          <div class="field">
+            <label class="field__label" for="budget">Budget estimé (optionnel)</label>
+            <select class="field__control" id="budget" name="budget">
+              <option value="">— Sélectionnez —</option>
+              <option value="moins-2000">Moins de 2 000 €</option>
+              <option value="2000-5000">2 000 € à 5 000 €</option>
+              <option value="5000-10000">5 000 € à 10 000 €</option>
+              <option value="10000-plus">Plus de 10 000 €</option>
+            </select>
+          </div>
+          <div class="field field--full">
+            <div class="checkRow">
+              <input class="checkRow__box" type="checkbox" id="rgpd" name="rgpd" required />
+              <label class="checkRow__label" for="rgpd">
+                J'accepte que mes données soient utilisées pour me recontacter et gérer ma demande de devis. *
+              </label>
             </div>
           </div>
-        </aside>
-      </div>
+        </div>
+
+        <div class="formActions">
+          <button type="submit" class="btn btn--primary btn--full" id="contact-submit">
+            Envoyer ma demande
+          </button>
+          <p class="formNote">
+            Urgence fuite ? <a href="tel:+33685740233">Appelez le 06 85 74 02 33</a>.
+          </p>
+        </div>
+        <!-- Success message (hidden by default, shown by JS or Formspree) -->
+        <div id="form-success" style="display: none;" class="panel" role="alert">
+          <h3 class="panel__title">✅ Message envoyé !</h3>
+          <p>Nous vous recontacterons sous 24h. Vérifiez vos spams si besoin.</p>
+        </div>
+      </form>
     </section>
 
     <!-- Contact methods -->
@@ -230,18 +207,12 @@
       <div class="container">
         <header class="section__head">
           <h2 class="section__title">Localisez-nous</h2>
-          <p class="section__sub">13f Quai Charles de Rohan, 56100 Lorient</p>
         </header>
 
-        <div class="mapFrame">
-          <iframe
-            title="Carte Abris-Toit-Ouest — 13f Quai Charles de Rohan, 56100 Lorient"
-            width="100%" height="100%"
-            frameborder="0"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.053!2d-3.3614!3d47.7510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48206f2e0000001%3A0x0!2sAbris%20Toit%20Ouest!5e0!3m2!1sfr!2sfr!4v1234567890123"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="mapFrame">
+        <div style="display:grid;place-items:center;height:100%;background:var(--surface-1);color:var(--text-3)">
+          Chargement de la carte...
+          <iframe title="Carte Abris-Toit-Ouest" width="100%" height="100%" frameborder="0" style="position:absolute;top:0;left:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5366.000901609078!2d-3.3610179232249187!3d47.742645971202656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48105e456e5f5cbf%3A0xd672cb8323a30587!2s13f%20Quai%20Charles%20de%20Rohan%2C%2056100%20Lorient!5e0!3m2!1sfr!2sfr!4v1767457342497!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>

@@ -60,11 +60,11 @@
   const revealSelectors = [
     ".hero__content",
     ".hero__media",
-    ".proof__item",
     ".card",
     ".tick",
     ".panel",
-    ".shot",
+    ".baShot",        // FIXED: was ".shot"
+    ".baProject",     // ADDED: for gallery projects
     ".quote",
     ".section__head",
     ".ctaStrip__inner",
@@ -79,7 +79,7 @@
     ".svcBlock",
     ".faqItem",
 
-    // Réalisations (missing in your version)
+    // Réalisations
     ".baItem",
     ".caseCard",
 
@@ -95,7 +95,6 @@
     .filter((el, idx, arr) => arr.indexOf(el) === idx);
 
   const injectRevealCSS = () => {
-    // Only reveal CSS. Mobile nav CSS now lives in style.css.
     const css = `
       .reveal-init { opacity: 0; transform: translateY(14px); }
       .reveal-in   { opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
@@ -109,7 +108,6 @@
       }
     `;
 
-    // Avoid injecting twice (in case of multiple bundles or hot reload)
     if (document.querySelector('style[data-ui="reveal"]')) return;
 
     const styleTag = document.createElement("style");
@@ -124,7 +122,6 @@
     revealItems.forEach((el, i) => {
       el.classList.add("reveal-init");
 
-      // small staggering for lists/grids
       const mod = i % 5;
       if (mod === 1) el.classList.add("reveal-delay-1");
       if (mod === 2) el.classList.add("reveal-delay-2");
@@ -173,7 +170,6 @@
       const hash = href.slice(hashIndex);
       if (!hash || hash === "#") return;
 
-      // Allow cross-page anchors normally
       if (base && base !== "" && base !== window.location.pathname.split("/").pop()) return;
 
       const targetId = decodeURIComponent(hash.replace("#", ""));
@@ -190,7 +186,7 @@
     });
   });
 
-  // ---------- Optional: Active nav link based on section in view ----------
+  // ---------- Active nav link based on section in view ----------
   const navLinks = qsa(".nav__link[href*='#']");
   const sections = navLinks
     .map((link) => {
@@ -221,8 +217,8 @@
   }
 
   // ---------- Contact form: prevent double submit ----------
-  const form = document.getElementById("contact-form");
-  const submitBtn = document.getElementById("contact-submit");
+  const form = qs("#contact-form");
+  const submitBtn = qs("#contact-submit");
 
   if (form && submitBtn) {
     form.addEventListener("submit", () => {
@@ -249,13 +245,13 @@
   try {
     const params = new URLSearchParams(window.location.search);
     if (params.get("type") === "urgence") {
-      const timeline = document.getElementById("timeline");
+      const timeline = qs("#timeline");
       if (timeline) timeline.value = "urgent";
 
-      const service = document.getElementById("service");
+      const service = qs("#service");
       if (service && !service.value) service.value = "couverture";
 
-      const desc = document.getElementById("description");
+      const desc = qs("#description");
       if (desc && !desc.value) {
         desc.value =
           "Urgence fuite :\n" +
@@ -267,7 +263,7 @@
     }
   } catch (_) {}
 
-    // ---------- FAQ Urgence: Accordion (.accordion-item) ----------
+  // ---------- FAQ Urgence: Accordion (.accordion-item) ----------
   const accItems = qsa(".accordion-item");
   if (accItems.length) {
     const closeItem = (item) => {
@@ -285,7 +281,6 @@
       if (btn) btn.setAttribute("aria-expanded", "true");
       if (!content) return;
 
-    // Animation hauteur (si pas reduced motion)
       content.style.maxHeight = prefersReducedMotion ? "none" : content.scrollHeight + "px";
     };
 
@@ -294,7 +289,6 @@
       const content = qs(".accordion-content", item);
       if (!btn || !content) return;
 
-      // Init état fermé
       btn.setAttribute("aria-expanded", item.classList.contains("active") ? "true" : "false");
       content.style.overflow = "hidden";
       content.style.maxHeight = item.classList.contains("active")
@@ -304,18 +298,15 @@
       btn.addEventListener("click", () => {
         const isOpen = item.classList.contains("active");
 
-        // close others
         accItems.forEach((other) => {
           if (other !== item) closeItem(other);
         });
 
-        // toggle current
         if (isOpen) closeItem(item);
         else openItem(item);
       });
     });
 
-    // Recalc on resize (open items)
     window.addEventListener("resize", () => {
       if (prefersReducedMotion) return;
       accItems.forEach((item) => {
@@ -326,40 +317,64 @@
     });
   }
 
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = lightbox.querySelector('.lightbox__img');
-  const closeBtn = lightbox.querySelector('.lightbox__close');
+  // ---------- Lightbox (Image Zoom) ----------
+  const lightbox = qs("#lightbox");
+  const lightboxImg = lightbox?.querySelector(".lightbox__img");
+  const closeBtn = lightbox?.querySelector(".lightbox__close");
 
-  document.querySelectorAll('img[data-zoom]').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
+  if (lightbox && lightboxImg && closeBtn) {
+    const closeLightbox = () => {
+      lightbox.classList.remove("show");
+      setTimeout(() => {
+        lightbox.close();
+        body.classList.remove("is-lightbox-open");
+      }, 350); // matches CSS transition duration
+    };
 
-      document.body.classList.add('is-lightbox-open');
-      lightbox.showModal();
-      
-      // Scroll back to current position
-      requestAnimationFrame(() => {
-        window.scrollTo(0, window.scrollY);
+    // Open on click of any [data-zoom] image
+    qsa("img[data-zoom]").forEach((img) => {
+      img.style.cursor = "pointer";
+
+      img.addEventListener("click", () => {
+        // Reset previous image to force reload
+        lightboxImg.src = ""; 
+        lightboxImg.alt = img.alt || "";
+
+        const scrollPosition = window.scrollY;
+
+        // Wait for image to actually load
+        const tempImg = new Image();
+        tempImg.src = img.src;
+
+        tempImg.onload = () => {
+          lightboxImg.src = tempImg.src;           // now it's cached & ready
+          body.classList.add("is-lightbox-open");
+          lightbox.showModal();
+          window.scrollTo(0, scrollPosition);
+
+          requestAnimationFrame(() => {
+            lightbox.classList.add("show");
+          });
+        };
+
+        tempImg.onerror = () => {
+          console.error("Failed to load image:", img.src);
+          // Optional: show fallback or close dialog
+        };
       });
-
-      setTimeout(() => lightbox.classList.add('show'), 10);
     });
-  });
 
-  function closeLightbox(){
-    // Enlever l'animation d'abord
-    lightbox.classList.remove('show');
-    setTimeout(() => {
-      lightbox.close();
-      document.body.classList.remove('is-lightbox-open');
-    }, 350); // durée correspond à CSS transition
+    // Close on button click
+    closeBtn.addEventListener("click", closeLightbox);
+
+    // Close on backdrop click
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Close on Escape key (ADDED)
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.open) closeLightbox();
+    });
   }
-
-  closeBtn.addEventListener('click', closeLightbox);
-
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
 })();
