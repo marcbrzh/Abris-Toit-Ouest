@@ -1076,12 +1076,6 @@ body.is-lightbox-open {
 /* ======================================================================
    PAGE: CONTACT
    ====================================================================== */
-.hero__img--contact {
-  background: linear-gradient(135deg, var(--dark-overlay-65), var(--dark-overlay-20)),
-    url("images/hero-contact.jpg");
-  background-size: cover;
-  background-position: center;
-}
 
 /* Layout: form + aside */
 .formLayout {
